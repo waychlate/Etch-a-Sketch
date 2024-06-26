@@ -12,3 +12,11 @@ for (let i = 0; i < 16; i++) {
 
     gridContainer.appendChild(newBoxContainer);
 }
+
+gridContainer.addEventListener("mouseover", (event) => {
+    let box = event.target
+
+    if (box.classList.contains("box")) {
+        box.classList.add("filled")
+    }
+});
