@@ -13,15 +13,18 @@ for (let i = 0; i < 16; i++) {
     gridContainer.appendChild(newBoxContainer);
 }
 
+let opacity = 0;
 gridContainer.addEventListener("mouseover", (event) => {
     let box = event.target
+    opacity = opacity + 0.1;
     let red = Math.random() * 255;
     let green = Math.random() * 255;
     let blue = Math.random() * 255;
 
     if (box.classList.contains("box") && box.classList.contains("filled") == false) {
         box.classList.add("filled")
-        box.setAttribute("style", `background-color: rgb(${red}, ${green}, ${blue})`);
+        box.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`
+        box.style.opacity = opacity
     }
 });
 
@@ -54,16 +57,20 @@ button.addEventListener("click", (event) => {
         newGrid.appendChild(newBoxContainer);
     }
 
-    newGrid.addEventListener("mouseover", (event) => {
-        let box = event.target
-        let red = Math.random() * 255;
-        let green = Math.random() * 255;
-        let blue = Math.random() * 255;
+    let opacity = 0;
     
-        if (box.classList.contains("box") && box.classList.contains("filled") == false) {
-            box.classList.add("filled")
-            box.setAttribute("style", `background-color: rgb(${red}, ${green}, ${blue})`);
-        }
-    });
+    newGrid.addEventListener("mouseover", (event) => {
+    let box = event.target
+    opacity = opacity + 0.1;
+    let red = Math.random() * 255;
+    let green = Math.random() * 255;
+    let blue = Math.random() * 255;
+
+    if (box.classList.contains("box") && box.classList.contains("filled") == false) {
+        box.classList.add("filled")
+        box.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`
+        box.style.opacity = opacity
+    }
+});
 
 });

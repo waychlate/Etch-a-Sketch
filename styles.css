@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-    margin: 0;
+    margin: 1rem 0;
     padding: 1rem;
     align-self: center;
 }
@@ -41,4 +41,5 @@ button:hover {
     min-height: 0;
     border: 0.01rem solid black;
     flex: 1 0 0;
+    opacity: 1;
 }
