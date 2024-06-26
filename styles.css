@@ -11,6 +11,18 @@ h1 {
     align-self: center;
 }
 
+button {
+    align-self: center;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
 .grid {
     display: flex;
     flex-direction: column;
@@ -27,7 +39,7 @@ h1 {
 .box {
     aspect-ratio: 1 / 1;
     min-height: 0;
-    border: 0.1rem solid black;
+    border: 0.01rem solid black;
     flex: 1 0 0;
 }
 
