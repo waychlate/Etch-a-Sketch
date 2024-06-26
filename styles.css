@@ -42,7 +42,3 @@ button:hover {
     border: 0.01rem solid black;
     flex: 1 0 0;
 }
-
-.filled {
-    background-color: red;
-}
