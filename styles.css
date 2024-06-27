@@ -26,7 +26,8 @@ button:hover {
 .grid {
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    padding: 1rem;
+    padding: 1rem 30vw;
 }
 
 .box-container {
@@ -41,5 +42,5 @@ button:hover {
     min-height: 0;
     border: 0.01rem solid black;
     flex: 1 0 0;
-    opacity: 1;
+    background-color: rgba(red, green, blue, 0.1);
 }

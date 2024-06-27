@@ -7,24 +7,34 @@ for (let i = 0; i < 16; i++) {
     for (let v = 0; v < 16; v++) {
         let newBox = document.createElement("div");
         newBox.classList.add("box")
+        newBox.setAttribute("data-value", 0);
         newBoxContainer.appendChild(newBox);
     }
 
     gridContainer.appendChild(newBoxContainer);
 }
 
-let opacity = 0;
+
 gridContainer.addEventListener("mouseover", (event) => {
     let box = event.target
-    opacity = opacity + 0.1;
     let red = Math.random() * 255;
     let green = Math.random() * 255;
     let blue = Math.random() * 255;
+    let opacity = Number(box.getAttribute("data-value"));
+    opacity = opacity + 0.1;
+    console.log(opacity);
+    box.setAttribute("data-value", opacity);
 
-    if (box.classList.contains("box") && box.classList.contains("filled") == false) {
-        box.classList.add("filled")
-        box.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`
-        box.style.opacity = opacity
+    if (box.classList.contains("box") && (box.classList.contains("filled") == false)) {
+        box.classList.add("filled");
+        box.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${opacity}`;
+    } else if (box.classList.contains("box") && (box.classList.contains("filled") == true)) {
+        let colors = box.style.backgroundColor.split(",")
+        colors.pop();
+        colors.push(opacity + ')');
+
+        let newColors = colors.join();
+        box.style.backgroundColor = newColors;
     }
 });
 
@@ -60,17 +70,26 @@ button.addEventListener("click", (event) => {
     let opacity = 0;
     
     newGrid.addEventListener("mouseover", (event) => {
-    let box = event.target
-    opacity = opacity + 0.1;
-    let red = Math.random() * 255;
-    let green = Math.random() * 255;
-    let blue = Math.random() * 255;
+        let box = event.target
+        let red = Math.random() * 255;
+        let green = Math.random() * 255;
+        let blue = Math.random() * 255;
+        let opacity = Number(box.getAttribute("data-value"));
+        opacity = opacity + 0.1;
+        console.log(opacity);
+        box.setAttribute("data-value", opacity);
 
-    if (box.classList.contains("box") && box.classList.contains("filled") == false) {
-        box.classList.add("filled")
-        box.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`
-        box.style.opacity = opacity
-    }
-});
+        if (box.classList.contains("box") && (box.classList.contains("filled") == false)) {
+            box.classList.add("filled");
+            box.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${opacity}`;
+        } else if (box.classList.contains("box") && (box.classList.contains("filled") == true)) {
+            let colors = box.style.backgroundColor.split(",")
+            colors.pop();
+            colors.push(opacity + ')');
+            
+            let newColors = colors.join();
+            box.style.backgroundColor = newColors;
+        }
+    });
 
 });
